@@ -52,6 +52,7 @@ function paddles(){
     ctx.strokeRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height)
 
     ctx.fillStyle = 'red';
+    //fillRect(x, y, width, height)
     ctx.fillRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height)
     ctx.strokeRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height)
     
@@ -63,11 +64,35 @@ function makeBall(ballX, ballY){
     ctx.strokeStyle = ballBorderColor
     ctx.lineWidth = 3
     //CanvasPath.arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean | undefined)
-    ctx.arc(ballX, ballY , ballRadius, 0, 2*Math.PI )  
-    ctx.stroke();
-    ctx.fill()
+    ctx.arc(ballX, ballY , ballRadius, 0, 2*Math.PI )   //To draw a Circle for ball, 2pi radians
+    ctx.stroke();   //oulines the circle with given color
+    ctx.fill()    //fills the ball with given fill style color
 }
 makeBall(ballX,ballY);
+
+//A function to create new ball for every move
+
+function moveBall(){
+    ballSpeed = 1;
+    if(Math.round(Math.random()) == 1){         //x-axis
+        ballXDirection = 1;                 //move to right
+    }else{
+        ballXDirection = -1;                 //move to left
+    }
+
+    if(Math.round(Math.random()) == 1){         //Y -axis
+        ballYDirection = 1;                  
+    }else{
+        ballYDirection = -1;
+    }
+    ballX = gwidth /2;
+    ballY = gheight /2;
+    makeBall(ballX , ballY);
+
+}
+
+
+console.log(Math.round(Math.random()))
 
 
 
