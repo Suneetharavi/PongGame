@@ -1,0 +1,108 @@
+         Pong Game
+_____________________________
+
+Pong was the first commercially successful video game.
+Pong is a two-dimensional sports game that simulates table tennis. 
+Players use the paddles to hit a ball back and forth.
+The player controls an in-game paddle by moving it horizontally across the up or down side of the screen against another player controlling a second paddle on the opposing side. 
+
+The goal is for each player to reach eleven points before the opponent; points are earned when one fails to return the ball to the other.
+
+-------------------------------------------------------
+Summarizing things to start the Pseudocode:
+
+We need: 2 Players
+We need : A Board, 2 Paddles, one ball, 
+Use the Up and Down arrow keys on your keyboard to move your paddle and hit the ball.
+
+We need 3 Buttons:
+ Start - To Start the Game.
+ Restart - To restart the Game from First
+ Stop - to Exit the Game
+(Optional Work)Pause: To Pause the Game 
+
+score functionality: 
+If player 1 hits the right screen then player 1 score increase by 1.
+If Player 2 hits the left screen then player 2 score increase by 1.
+The Player who reaches score 11 first Wins the Game.
+
+________________________________________________________________
+|         PLayer 1             |           Player 2             |                
+|                              |                                | (right screen)
+|                              |                                |               
+|                              |                                |
+|   Paddle 1                   |                                |
+|--                            |                                |   
+| |                            |                                |
+| |                            |                                |
+| |                            |                                |
+|--                            |                                |
+|                              |                                |
+|l                             |                    Paddle 2    |
+|e                             |                              --|
+|f                             |                              | |
+|t                             |                              | |
+|s                             |                              | |
+|c                             |                              --|
+|r                             |                                |
+|e                            ( )  Ball                         |
+|en                            |                                |
+________________________________________________________________
+
+
+------------------------------------------------------------------
+            Pseudocode
+        ___________________
+
+Create a new Folder for your Game named PONG GAME
+In PONG GAME create following 3 folders:                                                               
+Create a HTML File named index.html
+Create a CSS File named style.scc
+Create a JS File index.js and link it to index.html (Using script tag)
+
+Create a div for game board , ball , 2 divs for paddles, (1 for player1 , 1 for player 2), 1 div for to display the score.
+You can add some stylings in CSS Page ( moving background, colors , music( need to research on this))
+Create a class named Player with a constructor having (name, score).
+Create 3 onClick functions for start,stop , restart buttons accordingly.
+
+create a startGame function
+(On clicking start: startgame function should be called).
+create an endGame function
+(on clicking Stop button endGame function should be called).
+create restartGame function
+(on clicking Restart button restartGame function should be called)
+
+In startGame function :
+Create a  pop up to enter the names of the player1 and player2 which are to be added in the palyers instantiatins
+After entering the names .. create a confirmation box .. R u ready to start the Game. 
+        if yes startgame function is called.
+            Create 2 instances of player object Player1, Player2 with initial scores 0 and palyernames entered from popup 
+            call ballmoves function.
+        if no 
+             endGame function is called.
+Get a reference to paddles,ball and Game board in JS.
+Create a function named ballmoves() in JS.
+Give the ball a random direction and a random speed by changing the x and y co-ordinates of the ball. 
+create function collosions
+Apply collision with the ball and the game board’s left/right side , i.e, if the ball hits the left or right of the board then -1*y velocity of the ball. (reverse the ball direction) and update the score.
+Apply collision with the ball and game board’s top/bottom . i.e, increase the score.
+Apply collision with the ball and paddles.ie, increase the speed of the ball.
+
+In endGame funtion:
+    call window.close
+
+In restartgame function:
+    clear the payer names and make the scores zero and open pop up to ask for same palyers ( y or n)
+     if yes continue with the same paleyr names and set the scores for both players 0
+     else 
+      pop up :to enter players name and set the scores for both the players 0.
+
+
+Directions to Play:
+
+To start the Game: Click on the start button. 
+Player 1 : can control the Paddle-1 , i.e left side Paddle by using ‘W’ key to move upwards and ‘S’ key to move Downwards.
+Player 2: can control the Paddle-1 , i.e right side paddle by using ‘UP Arrow’ to move the paddle Upwards and ‘Down Arrow’ to move the paddle Downwards.
+To stop the Game:Click on Stop Button
+To restart the Game: click on Restart button.
+	
