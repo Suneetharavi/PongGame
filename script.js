@@ -7,7 +7,8 @@ const stopBtn = document.querySelector('#stopBtn')
 
 //GameBoard 
 const gwidth = gameBoard.width;
-const gheight = gameBoard.height
+const gheight = gameBoard.height;
+const backGround = 'green'
 
 //creating the ball
 const ballColor = 'yellow';
@@ -29,6 +30,8 @@ const paddleSpeed = 40;
 let player1Score = 0;
 let player2Score = 0;
 
+let intervalID;
+
 //creating Paddle Objects
 let paddle1 = {
     width: 25,     //Paddle1 width
@@ -43,14 +46,22 @@ let paddle2 = {
     x: gwidth - 25,   //Gameboard width minus paddle width,  to stay it in the right corner
     y: gheight - 100   //Gameboard height minus paddle height
 }
- 
+
+
+//Adding an Event Listener to window to listen to the key down events
+//The keydown event is fired when a key is pressed.
+
+windows.addEventListener( "Keydown", changeDirection);
+resetBtn.addEventListener('click',resetGame)
+     
 //Paddle function
 function paddles(){
     ctx.strokeStyle = paddleBorder;
+    //Paddle1
     ctx.fillStyle = 'blue';
     ctx.fillRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height)
     ctx.strokeRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height)
-
+    //Paddle2
     ctx.fillStyle = 'red';
     //fillRect(x, y, width, height)
     ctx.fillRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height)
@@ -58,6 +69,12 @@ function paddles(){
     
 };
 paddles();
+
+//Game Starts
+function gameStart(){
+    makeBall();
+    nextTick();
+}
 //A function to make a Ball
 function makeBall(ballX, ballY){
     ctx.fillStyle = ballColor
@@ -72,9 +89,9 @@ makeBall(ballX,ballY);
 
 //A function to create new ball for every move
 
-function moveBall(){
+function newBall(){
     ballSpeed = 1;
-    if(Math.round(Math.random()) == 1){         //x-axis
+    if(Math.round(Math.random()) == 1){         //x-axis ( checking with random number 0-1 )
         ballXDirection = 1;                 //move to right
     }else{
         ballXDirection = -1;                 //move to left
@@ -91,8 +108,16 @@ function moveBall(){
 
 }
 
+//Making the ball to move 
+function moveBall(){
 
-console.log(Math.round(Math.random()))
+    ballX += (ballSpeed * ballXDirection)
+    ballY += (ballSpeed * ballYDirection)
+    
+}
+
+
+// console.log(Math.round(Math.random()))
 
 
 
