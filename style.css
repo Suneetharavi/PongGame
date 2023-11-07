@@ -1,11 +1,11 @@
 #gameBoard{
     border: 3px solid black;
-    align-items: center;
+    /* align-items: center; */
 }
 
 #mainContainer{
     text-align: center;
-    align-items: center;
+    /* align-items: center; */
 }
 
 #score{
